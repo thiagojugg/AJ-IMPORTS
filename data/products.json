@@ -255,37 +255,37 @@
     ],
     "variants": [
       {
-        "name": "Amarela",
+        "name": "Variação 01",
         "images": [
           "assets/22586f4f-a2a7-4767-8d3d-3db207cffb80.jpeg"
         ]
       },
       {
-        "name": "Verde",
+        "name": "Variação 02",
         "images": [
           "assets/537d9499-ef0e-4e55-9900-c9da404b0b51.jpeg"
         ]
       },
       {
-        "name": "Gold",
+        "name": "Variação 03",
         "images": [
           "assets/acb93556-10e8-495b-ada8-b9b87a32f7b0.jpeg"
         ]
       },
       {
-        "name": "Branca",
+        "name": "Variação 04",
         "images": [
           "assets/d36e2f37-ac61-4fb8-bf2d-9a8f0ddead4a.jpeg"
         ]
       },
       {
-        "name": "Cinza",
+        "name": "Variação 05",
         "images": [
           "assets/ea46762e-f060-450c-bc5d-aa7a03a3fa8d.jpeg"
         ]
       },
       {
-        "name": "Vermelho",
+        "name": "Variação 06",
         "images": [
           "assets/e8e95afc-94d1-4735-96f1-8ba49444c64a.jpeg"
         ]
