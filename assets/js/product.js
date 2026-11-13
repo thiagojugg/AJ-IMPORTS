@@ -33,10 +33,11 @@ document.addEventListener("DOMContentLoaded",async()=>{
   };
 
   const sizeSection=$("sizes").closest(".detail-option");
-  const hasSizes=p.hasSizes!==false && !(String(p.category||"").toUpperCase().includes("RELÓGIO") || (p.tags||[]).includes("relógio"));
+  const isWatch=String(p.category||"").toUpperCase().includes("RELÓGIO") || (p.tags||[]).includes("relógio");
+  const sizes=Array.isArray(p.sizes)?p.sizes.filter(s=>String(s).trim()):[];
+  const hasSizes=p.hasSizes!==false && !isWatch && sizes.length>0;
   if(sizeSection)sizeSection.hidden=!hasSizes;
-  const sizes=hasSizes?(p.sizes||["P","M","G","GG"]):[];
-  size=sizes.length===1?sizes[0]:null;
+  size=hasSizes&&sizes.length===1?sizes[0]:null;
   $("sizes").innerHTML=sizes.map(s=>'<button type="button" data-s="'+s+'" class="'+(sizes.length===1?"chosen":"")+'">'+s+'</button>').join("");
   $("sizes").onclick=e=>{
     const b=e.target.closest("[data-s]");if(!b)return;
