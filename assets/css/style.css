@@ -260,3 +260,99 @@
   .hero-editorial .slide p{max-width:300px}
   .hero-editorial .dots{left:22px;bottom:18px}
 }
+
+
+/* HERO AJ IMPORTS — imagem em tela cheia, do limite do header ao fim do banner */
+.hero-editorial{
+  position:relative;
+  height:calc(100svh - 82px);
+  min-height:560px;
+  max-height:900px;
+  overflow:hidden;
+  background:#080808;
+}
+.hero-editorial .slides,
+.hero-editorial .slide{
+  width:100%;
+  height:100%;
+}
+.hero-editorial .slide{
+  position:relative;
+  isolation:isolate;
+  min-height:0;
+  padding:clamp(30px,5vw,72px) clamp(22px,7vw,100px);
+  display:none;
+  grid-template-columns:minmax(0,1fr);
+  align-items:center;
+  overflow:hidden;
+  background:transparent;
+}
+.hero-editorial .slide.active{display:grid}
+.hero-editorial .photo{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:0;
+  max-height:none;
+  border:0;
+  box-shadow:none;
+  background:#111;
+}
+.hero-editorial .photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:0;
+  max-height:none;
+  object-fit:cover;
+  object-position:center center;
+}
+.hero-editorial .photo:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.38) 42%,rgba(0,0,0,.04) 100%),linear-gradient(0deg,rgba(0,0,0,.34),transparent 38%);
+  pointer-events:none;
+}
+.hero-editorial .slide-copy{
+  position:relative;
+  z-index:1;
+  width:min(560px,58%);
+  align-self:center;
+}
+.hero-editorial .slide-copy>small,
+.hero-editorial .slide h1,
+.hero-editorial .slide p{text-shadow:0 2px 18px #000b}
+.hero-editorial .photo-index{z-index:2}
+.hero-editorial .dots{z-index:3}
+@media(max-width:650px){
+  .hero-editorial{
+    height:calc(100svh - 70px);
+    min-height:560px;
+    max-height:none;
+  }
+  .hero-editorial .slide{
+    min-height:0;
+    height:100%;
+    padding:30px 20px 58px;
+    align-items:end;
+  }
+  .hero-editorial .photo,
+  .hero-editorial .photo img{height:100%;min-height:0}
+  .hero-editorial .photo img{object-position:center center}
+  .hero-editorial .photo:after{
+    background:linear-gradient(0deg,rgba(0,0,0,.84) 0%,rgba(0,0,0,.42) 43%,rgba(0,0,0,.04) 100%);
+  }
+  .hero-editorial .slide-copy{
+    width:100%;
+    max-width:440px;
+    padding:0 2px;
+    align-self:end;
+  }
+  .hero-editorial .slide h1{font-size:clamp(48px,13vw,68px);margin:13px 0}
+  .hero-editorial .slide p{max-width:300px}
+  .hero-editorial .dots{left:22px;bottom:18px}
+}
