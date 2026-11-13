@@ -706,3 +706,6 @@
     font-size:6.5px;
   }
 }
+
+/* Cabeçalho compartilhado nas páginas internas */
+.header-search-results{display:grid;grid-template-columns:1fr;gap:0;width:100%;max-height:55vh;overflow:auto}.header-search-results a{display:flex;justify-content:space-between;gap:15px;padding:12px 4px;border-bottom:1px solid #333;font-size:12px}.header-search-results a span{color:var(--y);white-space:nowrap}.search.open{flex-wrap:wrap}
