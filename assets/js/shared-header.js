@@ -1,3 +1,4 @@
+(()=>{
 const PHONE="5598988482474";
 const $=id=>document.getElementById(id);
 const money=n=>new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"}).format(Number(n)||0);
@@ -34,3 +35,5 @@ document.addEventListener("DOMContentLoaded",async()=>{
  });
  renderCart();
 });
+
+})();
