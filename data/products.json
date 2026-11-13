@@ -218,7 +218,7 @@
   {
     "id": "camiseta-polo-vasco-da-gama",
     "name": "CAMISETA POLO VASCO DA GAMA",
-    "category": "CAMISETA DE TIME",
+    "category": "CAMISA DE TIME",
     "price": 95,
     "description": "Camiseta polo Vasco da Gama, modelo preto com bege. Disponível nos tamanhos P, M, G e GG.",
     "image": "assets/529886a8-811a-48fd-bb56-7c14d20347cc.jpeg",
@@ -250,7 +250,7 @@
   {
     "id": "camiseta-corinthians-classica",
     "name": "CAMISETA CORINTHIANS CLÁSSICA",
-    "category": "CAMISETA DE TIME",
+    "category": "CAMISA DE TIME",
     "price": 95,
     "description": "Camiseta Corinthians clássica, disponível nas cores preta e branca. Disponível nos tamanhos P, M, G e GG.",
     "image": "assets/a89a5443-6fc2-4fb3-992d-b6a69bade296.jpeg",
@@ -289,7 +289,7 @@
   {
     "id": "camiseta-nike-gola-polo",
     "name": "CAMISETA NIKE GOLA POLO",
-    "category": "CAMISETA",
+    "category": "CAMISETAS",
     "price": 90,
     "description": "Camiseta Nike gola polo. Disponível nas cores amarela, verde, gold, branca, cinza e vermelho, nos tamanhos P, M, G e GG.",
     "image": "assets/22586f4f-a2a7-4767-8d3d-3db207cffb80.jpeg",
