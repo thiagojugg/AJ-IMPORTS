@@ -613,3 +613,36 @@
 @media(prefers-reduced-motion:reduce){
   .product-header .back-link,.product-header .back-link .back-chevron{transition:none}
 }
+
+
+/* Galeria sem caixa ou recorte: exibe a fotografia inteira na proporção original */
+.detail-gallery-frame{
+  padding:0 !important;
+  border:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+}
+.detail-gallery-label{display:none !important}
+.detail-gallery-frame .gallery{
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  aspect-ratio:auto !important;
+  overflow:visible !important;
+  border:0 !important;
+  background:transparent !important;
+}
+.detail-gallery-frame .gimg,
+.detail-gallery-frame .gimg.current{
+  display:block;
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  margin:0 auto !important;
+}
+.detail-gallery-frame .gimg:not(.current){display:none !important}
