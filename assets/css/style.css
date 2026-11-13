@@ -918,3 +918,38 @@ footer .logo .aj-flag{width:34px;height:34px;flex-basis:34px}
 @media(prefers-reduced-motion:reduce){
   .site-footer .footer-instagram{transition:none}
 }
+
+
+/* Marca do rodapé — assinatura tipográfica robusta em branco */
+.site-footer .footer-brand{
+  gap:9px;
+  align-items:center;
+  letter-spacing:-2px;
+  text-shadow:0 2px 0 #777,0 5px 15px #000b;
+}
+.site-footer .footer-brand>span{
+  font-family:Impact,"Arial Black",Arial,sans-serif;
+  font-size:clamp(43px,5vw,56px);
+  font-weight:900;
+  letter-spacing:-2.8px;
+  line-height:.82;
+  color:#fff;
+  text-shadow:0 1px 0 #aaa,0 3px 0 #555,0 7px 14px #000b;
+}
+.site-footer .footer-brand>small{
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:2.3px;
+  line-height:1;
+}
+.site-footer .footer-instagram{
+  border-radius:2px;
+}
+.site-footer .footer-instagram:focus-visible{
+  outline:2px solid #f5d500;
+  outline-offset:4px;
+}
+@media(max-width:650px){
+  .site-footer .footer-brand>span{font-size:48px}
+  .site-footer .footer-brand>small{font-size:11px}
+}
