@@ -198,5 +198,37 @@
       "vasco da gama",
       "camiseta de time"
     ]
+  },
+  {
+    "id": "camiseta-corinthians-classica",
+    "name": "CAMISETA CORINTHIANS CLÁSSICA",
+    "category": "CAMISETA DE TIME",
+    "price": 95,
+    "description": "Camiseta Corinthians clássica, na cor preta. Disponível nos tamanhos P, M, G e GG.",
+    "image": "assets/a89a5443-6fc2-4fb3-992d-b6a69bade296.jpeg",
+    "images": [
+      "assets/a89a5443-6fc2-4fb3-992d-b6a69bade296.jpeg"
+    ],
+    "variants": [
+      {
+        "name": "Preta",
+        "images": [
+          "assets/a89a5443-6fc2-4fb3-992d-b6a69bade296.jpeg"
+        ]
+      }
+    ],
+    "sizes": [
+      "P",
+      "M",
+      "G",
+      "GG"
+    ],
+    "hasSizes": true,
+    "tags": [
+      "camiseta",
+      "corinthians",
+      "camiseta clássica",
+      "camiseta de time"
+    ]
   }
 ]
