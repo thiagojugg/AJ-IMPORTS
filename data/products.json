@@ -1,1 +1,65 @@
-[]
+[
+  {
+    "id": "relogio-omega-pulseira-couro",
+    "name": "RELÓGIO ÔMEGA COM PULSEIRA DE COURO",
+    "category": "RELÓGIOS",
+    "price": 265,
+    "createdAt": "2026-11-13T01:03:43.846Z",
+    "description": "Relógio Ômega com pulseira de couro. Escolha a combinação de cores que mais combina com você.",
+    "image": "assets/a97e55f7-47aa-45be-8721-62cf81d96957.jpeg",
+    "images": [
+      "assets/a97e55f7-47aa-45be-8721-62cf81d96957.jpeg",
+      "assets/a6f601cb-7487-4fad-aae4-06bd7a2de8a4.jpeg",
+      "assets/76f28edf-c74e-42eb-b299-59500381b7a3.jpeg",
+      "assets/c66a5867-7741-41a9-b9bd-9fd14b379787.jpeg",
+      "assets/d535f4ea-1a04-45b5-94ff-c0d2699ceddc.jpeg",
+      "assets/1c8fdc82-97f4-4454-928c-d8bfb639df49.jpeg"
+    ],
+    "variants": [
+      {
+        "name": "Vermelho com caixa prata",
+        "images": [
+          "assets/a97e55f7-47aa-45be-8721-62cf81d96957.jpeg"
+        ]
+      },
+      {
+        "name": "Preto com caixa preta",
+        "images": [
+          "assets/a6f601cb-7487-4fad-aae4-06bd7a2de8a4.jpeg"
+        ]
+      },
+      {
+        "name": "Azul com caixa prata",
+        "images": [
+          "assets/76f28edf-c74e-42eb-b299-59500381b7a3.jpeg"
+        ]
+      },
+      {
+        "name": "Preto com caixa dourada",
+        "images": [
+          "assets/c66a5867-7741-41a9-b9bd-9fd14b379787.jpeg"
+        ]
+      },
+      {
+        "name": "Verde com caixa dourada",
+        "images": [
+          "assets/d535f4ea-1a04-45b5-94ff-c0d2699ceddc.jpeg"
+        ]
+      },
+      {
+        "name": "Cinza com caixa prata",
+        "images": [
+          "assets/1c8fdc82-97f4-4454-928c-d8bfb639df49.jpeg"
+        ]
+      }
+    ],
+    "sizes": [
+      "Único"
+    ],
+    "tags": [
+      "omega",
+      "relógio",
+      "pulseira de couro"
+    ]
+  }
+]
