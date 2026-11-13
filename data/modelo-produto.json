@@ -1,0 +1,38 @@
+{
+  "id": "identificador-unico-do-produto",
+  "name": "NOME DO PRODUTO",
+  "category": "CATEGORIA",
+  "price": 0,
+  "createdAt": "2026-11-12T12:00:00.000Z",
+  "description": "Descrição breve do produto.",
+  "image": "assets/foto-principal.jpeg",
+  "images": [
+    "assets/foto-principal.jpeg",
+    "assets/foto-2.jpeg"
+  ],
+  "variants": [
+    {
+      "name": "Cor ou modelo 1",
+      "images": [
+        "assets/foto-principal.jpeg"
+      ]
+    },
+    {
+      "name": "Cor ou modelo 2",
+      "images": [
+        "assets/foto-2.jpeg"
+      ]
+    }
+  ],
+  "sizes": [
+    "P",
+    "M",
+    "G",
+    "GG"
+  ],
+  "hasSizes": true,
+  "tags": [
+    "palavra-chave-1",
+    "palavra-chave-2"
+  ]
+}
