@@ -9,7 +9,7 @@ function renderCart(){
  const cart=getCart(), count=$("count");
  if(count)count.textContent=cart.reduce((n,p)=>n+(+p.qty||0),0);
  const items=$("cartItems");
- if(items)items.innerHTML=cart.length?cart.map((p,i)=>'<div class="cartline"><b>'+p.name+'</b><br>Variedade: '+(p.variant||"Única")+(p.size?' · Tamanho: '+p.size:'')+' · Qtd: '+p.qty+'<br>'+money((+p.price||0)*(+p.qty||0))+'<button data-del="'+i+'">REMOVER ×</button></div>').join(""):'<p class="empty">Sua sacola está vazia.</p>';
+ if(items)items.innerHTML=cart.length?cart.map((p,i)=>'<div class="cartline">'+(p.image?'<img class="cart-thumb" src="'+p.image+'" alt="'+p.name+'">' : '')+'<div class="cartline-info"><b>'+p.name+'</b><br>Variedade: '+(p.variant||"Única")+(p.size?' · Tamanho: '+p.size:'')+' · Qtd: '+p.qty+'<br>'+money((+p.price||0)*(+p.qty||0))+'</div><button data-del="'+i+'">REMOVER ×</button></div>').join(""):'<p class="empty">Sua sacola está vazia.</p>';
  const total=$("total");if(total)total.textContent=money(cart.reduce((n,p)=>n+(+p.price||0)*(+p.qty||0),0));
 }
 document.addEventListener("DOMContentLoaded",async()=>{
