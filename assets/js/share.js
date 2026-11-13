@@ -8,6 +8,33 @@
  function close(){document.querySelector(".share-menu")?.remove();document.removeEventListener("click",outside,true)}
  function outside(e){if(!e.target.closest(".share-menu")&&!e.target.closest(".share-product"))close()}
  document.addEventListener("click",async e=>{
+  const whatsapp=e.target.closest(".share-whatsapp");
+  if(whatsapp){
+   e.preventDefault();e.stopPropagation();
+   const photo=whatsapp.dataset.photo;
+   const message=whatsapp.dataset.message;
+   const fallback="https://wa.me/?text="+encodeURIComponent(message);
+   close();
+   try{
+    if(navigator.share&&navigator.canShare&&photo){
+     const response=await fetch(photo);
+     if(!response.ok)throw new Error("Não foi possível carregar a foto");
+     const blob=await response.blob();
+     const extension=(blob.type.split("/")[1]||"jpg").replace("jpeg","jpg");
+     const file=new File([blob],"foto-produto."+extension,{type:blob.type||"image/jpeg"});
+     const payload={files:[file],text:message,title:"Compartilhar produto"};
+     if(navigator.canShare({files:payload.files})){
+      await navigator.share(payload);
+      return;
+     }
+    }
+   }catch(err){
+    if(err&&err.name==="AbortError")return;
+    console.warn("Compartilhamento de imagem indisponível; usando link da foto.",err);
+   }
+   window.open(fallback,"_blank","noopener,noreferrer");
+   return;
+  }
   const btn=e.target.closest(".share-product");if(!btn)return;
   e.preventDefault();e.stopPropagation();close();
   try{
@@ -16,9 +43,12 @@
    if(!p)return;
    const url=base+"compartilhar/"+encodeURIComponent(p.id)+"/";
    const photo=new URL(p.image,base).href;
-   const message=[p.name,p.description||"Confira este produto na AJ IMPORTS.","Foto do produto: "+photo,"Ver produto: "+url].join("\n");
+   const message=[p.name,p.description||"Confira este produto na AJ IMPORTS.","Ver produto: "+url].join("\n");
    const menu=document.createElement("div");menu.className="share-menu";
-   menu.innerHTML='<a target="_blank" rel="noopener noreferrer" href="https://wa.me/?text='+encodeURIComponent(message)+'">'+icon("whatsapp")+'WHATSAPP</a><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url)+'">'+icon("facebook")+'FACEBOOK</a>';
+   menu.innerHTML='<a href="#" class="share-whatsapp">'+icon("whatsapp")+'WHATSAPP</a><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url)+'">'+icon("facebook")+'FACEBOOK</a>';
+   const wa=menu.querySelector(".share-whatsapp");
+   wa.dataset.photo=photo;
+   wa.dataset.message=message;
    document.body.append(menu);
    const r=btn.getBoundingClientRect();
    menu.style.left=Math.max(10,Math.min(innerWidth-205,r.right-195))+"px";
