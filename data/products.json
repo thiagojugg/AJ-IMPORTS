@@ -1,5 +1,38 @@
 [
   {
+    "id": "camiseta-bermuda-flamengo-dry-fit-premium",
+    "name": "CAMISETA + BERMUDA FLAMENGO DRY FIT PREMIUM",
+    "category": "CONJUNTOS ESPORTIVOS",
+    "price": 95,
+    "description": "Conjunto masculino Flamengo Dry Fit Premium, com camiseta e bermuda. Disponível nos tamanhos P, M, G e GG.",
+    "image": "assets/04592fe0-c912-43d4-a826-7e8ecc39a6f0.jpeg",
+    "images": [
+      "assets/04592fe0-c912-43d4-a826-7e8ecc39a6f0.jpeg"
+    ],
+    "variants": [
+      {
+        "name": "Variação 01",
+        "images": [
+          "assets/04592fe0-c912-43d4-a826-7e8ecc39a6f0.jpeg"
+        ]
+      }
+    ],
+    "sizes": [
+      "P",
+      "M",
+      "G",
+      "GG"
+    ],
+    "hasSizes": true,
+    "tags": [
+      "Flamengo",
+      "Dry Fit",
+      "conjunto esportivo",
+      "camiseta",
+      "bermuda"
+    ]
+  },
+  {
     "id": "camiseta-bermuda-nike-dry-fit-premium",
     "name": "CAMISETA + BERMUDA NIKE DRY FIT PREMIUM",
     "category": "ROUPA DE ACADEMIA MASCULINA",
