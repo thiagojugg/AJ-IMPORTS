@@ -6,12 +6,7 @@ const money=n=>new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"}).
 function gallery(){
   const imgs=variant&&variant.images&&variant.images.length?variant.images:(p.images||[p.image]).filter(Boolean);
   $("gallery").innerHTML=imgs.length?imgs.map((src,i)=>'<img class="gimg '+(!i?"current":"")+'" src="'+src+'" alt="'+p.name+'" loading="'+(i?"lazy":"eager")+'">').join(""):'<div class="placeholder">FOTOS DO PRODUTO SERÃO ADICIONADAS</div>';
-  $("thumbs").innerHTML=imgs.map((src,i)=>'<button type="button" data-img="'+i+'" class="'+(!i?"thumb-current":"")+'" aria-label="Ver foto '+(i+1)+'"><img src="'+src+'" alt=""></button>').join("");
-  $("thumbs").onclick=e=>{
-    const b=e.target.closest("[data-img]");if(!b)return;
-    document.querySelectorAll(".gimg").forEach((im,i)=>im.classList.toggle("current",i===+b.dataset.img));
-    $("thumbs").querySelectorAll("button").forEach(x=>x.classList.toggle("thumb-current",x===b));
-  };
+
 }
 
 document.addEventListener("DOMContentLoaded",async()=>{
@@ -29,6 +24,8 @@ document.addEventListener("DOMContentLoaded",async()=>{
   $("variants").innerHTML=variants.map((v,i)=>'<button type="button" data-v="'+i+'" class="'+(!i?"chosen":"")+'">'+v.name+'</button>').join("");
   const current=$("variant-current");
   if(current)current.textContent=variant.name;
+  const variantToggle=$("toggle-variants");
+  variantToggle.onclick=()=>{const opened=$("variants").classList.toggle("variants-hidden")===false;variantToggle.setAttribute("aria-expanded",String(opened));variantToggle.querySelector("span").textContent=opened?"−":"＋";};
   $("variants").onclick=e=>{
     const b=e.target.closest("[data-v]");if(!b)return;
     variant=variants[+b.dataset.v];
@@ -60,7 +57,7 @@ document.addEventListener("DOMContentLoaded",async()=>{
     const currentIndex=imgs.findIndex(im=>im.classList.contains("current"));
     const next=(currentIndex+(dx<0?1:-1)+imgs.length)%imgs.length;
     imgs.forEach((im,i)=>im.classList.toggle("current",i===next));
-    $("thumbs").querySelectorAll("button").forEach((b,i)=>b.classList.toggle("thumb-current",i===next));
+
   },{passive:true});
 
   function valid(){if(!size){alert("Selecione um tamanho.");return false;}return true;}
