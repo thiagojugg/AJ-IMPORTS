@@ -1,5 +1,53 @@
 [
   {
+    "id": "calca-jeans-skinny",
+    "name": "CALÇA JEANS SKINNY",
+    "category": "CALÇAS",
+    "price": 115,
+    "description": "Calça jeans skinny. Disponível nos tamanhos 36, 38, 40, 42, 44 e 46. Escolha uma das três variações e o tamanho desejado.",
+    "image": "assets/36591e0d-3429-4b72-90ca-a27f459e81d7.jpeg",
+    "images": [
+      "assets/36591e0d-3429-4b72-90ca-a27f459e81d7.jpeg",
+      "assets/82d4d068-b71e-4067-b62c-68555f9ea9c9.jpeg",
+      "assets/bf487664-4dfc-4532-9d35-9beb41416dcd.jpeg"
+    ],
+    "variants": [
+      {
+        "name": "Variação 01",
+        "images": [
+          "assets/36591e0d-3429-4b72-90ca-a27f459e81d7.jpeg"
+        ]
+      },
+      {
+        "name": "Variação 02",
+        "images": [
+          "assets/82d4d068-b71e-4067-b62c-68555f9ea9c9.jpeg"
+        ]
+      },
+      {
+        "name": "Variação 03",
+        "images": [
+          "assets/bf487664-4dfc-4532-9d35-9beb41416dcd.jpeg"
+        ]
+      }
+    ],
+    "sizes": [
+      "36",
+      "38",
+      "40",
+      "42",
+      "44",
+      "46"
+    ],
+    "hasSizes": true,
+    "tags": [
+      "calça",
+      "calça jeans",
+      "skinny",
+      "jeans"
+    ]
+  },
+  {
     "id": "relogio-omega-pulseira-couro",
     "name": "RELÓGIO ÔMEGA COM PULSEIRA DE COURO",
     "category": "RELÓGIOS",
