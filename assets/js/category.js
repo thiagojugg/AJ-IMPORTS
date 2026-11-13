@@ -1,54 +1,59 @@
-document.addEventListener("DOMContentLoaded",async()=>{
-  const category=new URLSearchParams(location.search).get("categoria")||"";
-  const norm=s=>(s||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toUpperCase();
-  document.title=category+" — AJ IMPORTS";
-  document.getElementById("title").textContent=category;
+document.addEventListener("DOMContentLoaded", async () => {
+  const category = new URLSearchParams(location.search).get("categoria") || "";
+  const norm = value => String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim()
+    .replace(/\s+/g, " ")
+    .toUpperCase();
 
-  let products=[];
-  try{
-    products=await(await fetch("data/products.json",{cache:"no-store"})).json();
-  }catch(e){}
+  const currentCategory = norm(category);
+  document.title = (category || "Categoria") + " — AJ IMPORTS";
+  document.getElementById("title").textContent = category;
 
-  products=products
-    .filter(p=>{
-      const currentCategory=norm(category);
-      const productCategory=norm(p.category);
-      const isShirtCategory=currentCategory.includes("CAMISETA");
-      const isBermuda=p.id==="bermudas-jeans-ff2" || productCategory.includes("BERMUDA");
-      const isMaleGymCategory=currentCategory==="ROUPA DE ACADEMIA MASCULINA";
-      const isFemaleGymCategory=currentCategory==="ROUPA DE ACADEMIA FEMININA";
-      const isMaleGymProduct=productCategory==="ROUPA DE ACADEMIA MASCULINA";
-      const isFemaleGymProduct=productCategory==="ROUPA DE ACADEMIA FEMININA";
-      if(isFemaleGymCategory && isMaleGymProduct) return false;
-      if(isMaleGymCategory && isFemaleGymProduct) return false;
-      return productCategory===currentCategory && !(isShirtCategory && isBermuda);
-    })
-    .sort((a,b)=>new Date(b.createdAt||0)-new Date(a.createdAt||0));
+  let products = [];
+  try {
+    const response = await fetch("data/products.json?v=3", { cache: "no-store" });
+    if (!response.ok) throw new Error("Não foi possível carregar os produtos");
+    products = await response.json();
+  } catch (error) {
+    console.error("Erro ao carregar produtos:", error);
+  }
 
-  const money=n=>new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"}).format(Number(n)||0);
-  const card=p=>{
-    const variants=Array.isArray(p.variants)?p.variants:[];
-    const variantCount=variants.length||1;
-    return '<a class="card" href="produto.html?id='+encodeURIComponent(p.id)+'" aria-label="Ver '+p.name+'">'+
-      '<div class="card-media">'+
-        (p.image?'<img src="'+p.image+'" alt="'+p.name+'" loading="lazy">':'<div class="placeholder">AJ IMPORTS</div>')+
-        '<span class="card-category">'+(p.category||"AJ IMPORTS")+'</span>'+
-        '<span class="card-arrow" aria-hidden="true">↗</span>'+
-      '</div>'+
-      '<div class="card-info">'+
-        '<div class="card-heading">'+
-          '<h3>'+p.name+'</h3>'+
-          '<span class="card-variants">'+variantCount+(variantCount===1?" VARIEDADE":" VARIEDADES")+'</span>'+
-        '</div>'+
-        '<div class="card-bottom">'+
-          '<div><small>PREÇO</small><strong class="price">'+money(p.price)+'</strong></div>'+
-          '<span class="card-link">VER PRODUTO <b>↗</b></span>'+
-        '</div>'+
-      '</div>'+
+  // A categoria cadastrada no produto é a única fonte de classificação.
+  // Não misturar camisetas, bermudas ou linhas fitness por palavras do nome.
+  products = products
+    .filter(product => norm(product.category) === currentCategory)
+    .sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+
+  const money = value => new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL"
+  }).format(Number(value) || 0);
+
+  const card = product => {
+    const variants = Array.isArray(product.variants) ? product.variants : [];
+    const count = variants.length || 1;
+    return '<a class="card" href="produto.html?id=' + encodeURIComponent(product.id) + '" aria-label="Ver ' + product.name + '">' +
+      '<div class="card-media">' +
+        (product.image ? '<img src="' + product.image + '" alt="' + product.name + '" loading="lazy">' : '<div class="placeholder">AJ IMPORTS</div>') +
+        '<span class="card-category">' + (product.category || "AJ IMPORTS") + '</span>' +
+        '<span class="card-arrow" aria-hidden="true">↗</span>' +
+      '</div>' +
+      '<div class="card-info">' +
+        '<div class="card-heading">' +
+          '<h3>' + product.name + '</h3>' +
+          '<span class="card-variants">' + count + (count === 1 ? " VARIEDADE" : " VARIEDADES") + '</span>' +
+        '</div>' +
+        '<div class="card-bottom">' +
+          '<div><small>PREÇO</small><strong class="price">' + money(product.price) + '</strong></div>' +
+          '<span class="card-link">VER PRODUTO <b>↗</b></span>' +
+        '</div>' +
+      '</div>' +
     '</a>';
   };
 
-  document.getElementById("items").innerHTML=products.length
-    ?products.map(card).join("")
-    :'<p class="empty">Ainda não há produtos nesta categoria.</p>';
+  document.getElementById("items").innerHTML = products.length
+    ? products.map(card).join("")
+    : '<p class="empty">Ainda não há produtos nesta categoria.</p>';
 });
