@@ -1319,3 +1319,15 @@ body::after{
 @media(min-width:761px){
   .products{grid-template-columns:repeat(4,minmax(0,1fr));}
 }
+
+
+/* Compartilhamento de produtos */
+.card-media .share-product{position:absolute;top:12px;right:12px;z-index:3;width:36px;height:36px;border:1px solid #ffffff40;border-radius:50%;display:grid;place-items:center;background:#080808df;color:#fff;backdrop-filter:blur(8px);transition:.2s}
+.share-product svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.card-media .share-product:hover,.detail-share:hover{border-color:var(--y);color:var(--y);transform:translateY(-2px)}
+.detail-share{display:inline-flex;align-items:center;justify-content:center;gap:9px;margin:8px 0 18px;padding:11px 14px;border:1px solid #3a3a3a;background:#141414;color:#eee;font-size:9px;font-weight:800;letter-spacing:1.2px;transition:.2s}
+.share-menu{position:fixed;z-index:1000;min-width:190px;padding:8px;background:#151515;border:1px solid #393939;box-shadow:0 16px 40px #000b;display:grid;gap:4px}
+.share-menu a{display:flex;align-items:center;gap:10px;padding:12px;color:#f7f7f4;font-size:10px;font-weight:800;letter-spacing:.8px}
+.share-menu a:hover{background:#292929;color:var(--y)}
+.share-menu svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:650px){.card-media .share-product{top:9px;right:9px;width:33px;height:33px}.detail-share{width:100%;margin:6px 0 16px}}
