@@ -1,5 +1,59 @@
 [
   {
+    "id": "conjunto-alo-dry-fit-premium",
+    "name": "CONJUNTO ALO DRY FIT PREMIUM",
+    "category": "ROUPA DE ACADEMIA FEMININA",
+    "price": 95,
+    "description": "Conjunto feminino ALO Dry Fit Premium. Disponível nos tamanhos P, M, G e GG. Escolha uma das quatro variações e o tamanho desejado.",
+    "image": "assets/2719d36a-94b1-4a92-b8de-ef9dc1ed4714.jpeg",
+    "images": [
+      "assets/2719d36a-94b1-4a92-b8de-ef9dc1ed4714.jpeg",
+      "assets/b88d1f43-4e55-4b85-8e2c-a7573d628db8.jpeg",
+      "assets/f3fbb190-0f87-4c1f-9608-d1c704846a4d.jpeg",
+      "assets/fa0f567f-ef1a-4edc-b866-dcd75aa8a701.jpeg"
+    ],
+    "variants": [
+      {
+        "name": "Variação 01",
+        "images": [
+          "assets/2719d36a-94b1-4a92-b8de-ef9dc1ed4714.jpeg"
+        ]
+      },
+      {
+        "name": "Variação 02",
+        "images": [
+          "assets/b88d1f43-4e55-4b85-8e2c-a7573d628db8.jpeg"
+        ]
+      },
+      {
+        "name": "Variação 03",
+        "images": [
+          "assets/f3fbb190-0f87-4c1f-9608-d1c704846a4d.jpeg"
+        ]
+      },
+      {
+        "name": "Variação 04",
+        "images": [
+          "assets/fa0f567f-ef1a-4edc-b866-dcd75aa8a701.jpeg"
+        ]
+      }
+    ],
+    "sizes": [
+      "P",
+      "M",
+      "G",
+      "GG"
+    ],
+    "hasSizes": true,
+    "tags": [
+      "ALO",
+      "Dry Fit",
+      "conjunto",
+      "academia feminina",
+      "roupa fitness"
+    ]
+  },
+  {
     "id": "camiseta-bermuda-flamengo-dry-fit-premium",
     "name": "CAMISETA + BERMUDA FLAMENGO DRY FIT PREMIUM",
     "category": "CONJUNTOS ESPORTIVOS",
