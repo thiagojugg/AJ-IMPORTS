@@ -3,7 +3,7 @@ const PHONE="5598988482474";
 const $=id=>document.getElementById(id);
 const money=n=>new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"}).format(Number(n)||0);
 let catalog=[],refreshTimer=null;
-const normalize=value=>String(value||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toUpperCase().trim();
+const normalize=value=>String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toUpperCase().trim();
 function getCart(){try{return JSON.parse(localStorage.getItem("aj-cart")||"[]")}catch(e){return[]}}
 function renderCart(){
  const cart=getCart(),count=$("count");
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded",()=>{
  $("cartItems")?.addEventListener("click",e=>{const b=e.target.closest("[data-del]");if(!b)return;const cart=getCart();cart.splice(+b.dataset.del,1);localStorage.setItem("aj-cart",JSON.stringify(cart));renderCart()});
  $("checkout")?.addEventListener("click",()=>{
   const cart=getCart();if(!cart.length)return;
-  const msg="Olá! Quero finalizar meu pedido na AJ IMPORTS:\\n\\n"+cart.map(p=>p.name+" | "+(p.variant||"Única")+" | "+(p.size||"Sem tamanho")+" | Qtd "+p.qty+" | "+money(p.price*p.qty)+(p.image?"\\nFoto do produto: "+new URL(p.image,location.href).href:"")).join("\\n\\n")+"\\n\\nTOTAL: "+money(cart.reduce((n,p)=>n+p.price*p.qty,0));
+  const msg="Olá! Quero finalizar meu pedido na AJ IMPORTS:\n\n"+cart.map(p=>p.name+" | "+(p.variant||"Única")+" | "+(p.size||"Sem tamanho")+" | Qtd "+p.qty+" | "+money(p.price*p.qty)+(p.image?"\nFoto do produto: "+new URL(p.image,location.href).href:"")).join("\n\n")+"\n\nTOTAL: "+money(cart.reduce((n,p)=>n+p.price*p.qty,0));
   window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(msg),"_blank");
  });
  input?.addEventListener("keydown",e=>{if(e.key==="Escape")closeSearch()});
