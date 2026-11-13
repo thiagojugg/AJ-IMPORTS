@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded",async()=>{
   $("buy").onclick=()=>{
     if(!valid())return;
     const o=order();
-    const msg="Olá! Quero comprar na AJ IMPORTS:\nProduto: "+o.name+"\nVariedade: "+o.variant+(o.size?"\nTamanho: "+o.size:"")+"\nQuantidade: "+o.qty+"\nValor: "+money(o.price)+(o.image?"\nImagem escolhida: "+o.image:"");
+    const msg="Olá! Quero comprar na AJ IMPORTS:\nProduto: "+o.name+"\nVariedade: "+o.variant+(o.size?"\nTamanho: "+o.size:"")+"\nQuantidade: "+o.qty+"\nValor: "+money(o.price)+(o.image?"\nFoto da opção escolhida: "+new URL(o.image,window.location.href).href:"");
     window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(msg),"_blank");
   };
 });
