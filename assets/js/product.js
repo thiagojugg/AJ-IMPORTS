@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded",async()=>{
   };
 
   const sizeSection=$("sizes").closest(".detail-option");
-  const hasSizes=!(String(p.category||"").toUpperCase().includes("RELÓGIO") || (p.tags||[]).includes("relógio"));
+  const hasSizes=p.hasSizes!==false && !(String(p.category||"").toUpperCase().includes("RELÓGIO") || (p.tags||[]).includes("relógio"));
   if(sizeSection)sizeSection.hidden=!hasSizes;
   const sizes=hasSizes?(p.sizes||["P","M","G","GG"]):[];
   size=sizes.length===1?sizes[0]:null;
