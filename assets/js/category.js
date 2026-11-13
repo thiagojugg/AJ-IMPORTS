@@ -6,14 +6,22 @@ document.addEventListener("DOMContentLoaded",async()=>{
 
   let products=[];
   try{
-    products=await(await fetch("data/products.json")).json();
+    products=await(await fetch("data/products.json",{cache:"no-store"})).json();
   }catch(e){}
 
   products=products
     .filter(p=>{
-      const isShirtCategory=norm(category).includes("CAMISETA");
-      const isBermuda=p.id==="bermudas-jeans-ff2" || norm(p.category).includes("BERMUDA");
-      return norm(p.category)===norm(category) && !(isShirtCategory && isBermuda);
+      const currentCategory=norm(category);
+      const productCategory=norm(p.category);
+      const isShirtCategory=currentCategory.includes("CAMISETA");
+      const isBermuda=p.id==="bermudas-jeans-ff2" || productCategory.includes("BERMUDA");
+      const isMaleGymCategory=currentCategory==="ROUPA DE ACADEMIA MASCULINA";
+      const isFemaleGymCategory=currentCategory==="ROUPA DE ACADEMIA FEMININA";
+      const isMaleGymProduct=productCategory==="ROUPA DE ACADEMIA MASCULINA";
+      const isFemaleGymProduct=productCategory==="ROUPA DE ACADEMIA FEMININA";
+      if(isFemaleGymCategory && isMaleGymProduct) return false;
+      if(isMaleGymCategory && isFemaleGymProduct) return false;
+      return productCategory===currentCategory && !(isShirtCategory && isBermuda);
     })
     .sort((a,b)=>new Date(b.createdAt||0)-new Date(a.createdAt||0));
 
