@@ -24,8 +24,6 @@ document.addEventListener("DOMContentLoaded",async()=>{
   $("variants").innerHTML=variants.map((v,i)=>'<button type="button" data-v="'+i+'" class="'+(!i?"chosen":"")+'">'+v.name+'</button>').join("");
   const current=$("variant-current");
   if(current)current.textContent=variant.name;
-  const variantToggle=$("toggle-variants");
-  variantToggle.onclick=()=>{const opened=$("variants").classList.toggle("variants-hidden")===false;variantToggle.setAttribute("aria-expanded",String(opened));variantToggle.querySelector("span").textContent=opened?"−":"＋";};
   $("variants").onclick=e=>{
     const b=e.target.closest("[data-v]");if(!b)return;
     variant=variants[+b.dataset.v];
