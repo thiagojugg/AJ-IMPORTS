@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded",async()=>{
  $("cartItems")?.addEventListener("click",e=>{const b=e.target.closest("[data-del]");if(!b)return;const c=getCart();c.splice(+b.dataset.del,1);saveCart(c)});
  $("checkout")?.addEventListener("click",()=>{
   const c=getCart();if(!c.length)return;
-  const msg="Olá! Quero finalizar meu pedido na AJ IMPORTS:\n\n"+c.map(p=>p.name+" | "+(p.variant||"Única")+" | "+(p.size||"Sem tamanho")+" | Qtd "+p.qty+" | "+money(p.price*p.qty)+(p.image?"\nImagem: "+p.image:"")).join("\n\n")+"\n\nTOTAL: "+money(c.reduce((n,p)=>n+p.price*p.qty,0));
+  const msg="Olá! Quero finalizar meu pedido na AJ IMPORTS:\n\n"+c.map(p=>p.name+" | "+(p.variant||"Única")+" | "+(p.size||"Sem tamanho")+" | Qtd "+p.qty+" | "+money(p.price*p.qty)+(p.image?"\nFoto do produto: "+new URL(p.image,window.location.href).href:"")).join("\n\n")+"\n\nTOTAL: "+money(c.reduce((n,p)=>n+p.price*p.qty,0));
   window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(msg),"_blank");
  });
  try{catalog=await(await fetch("data/products.json")).json()}catch(e){catalog=[]}
