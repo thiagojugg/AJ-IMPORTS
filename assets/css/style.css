@@ -709,3 +709,6 @@
 
 /* Cabeçalho compartilhado nas páginas internas */
 .header-search-results{display:grid;grid-template-columns:1fr;gap:0;width:100%;max-height:55vh;overflow:auto}.header-search-results a{display:flex;justify-content:space-between;gap:15px;padding:12px 4px;border-bottom:1px solid #333;font-size:12px}.header-search-results a span{color:var(--y);white-space:nowrap}.search.open{flex-wrap:wrap}
+
+/* Miniaturas dos produtos no carrinho */
+#cartItems{overflow-y:auto;flex:1;min-height:0}.cartline{display:flex;align-items:center;gap:12px}.cart-thumb{width:66px;height:78px;flex:0 0 66px;object-fit:cover;border-radius:4px;background:#222}.cartline-info{flex:1;min-width:0;line-height:1.7}.cartline-info b{display:block;color:#fff;font-size:12px;margin-bottom:3px}.cartline>button{float:none;align-self:center;white-space:nowrap;font-size:10px;padding:6px 0}
