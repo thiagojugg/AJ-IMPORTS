@@ -1291,3 +1291,26 @@ body::after{
 @media(prefers-reduced-motion:reduce){body::before,body::after{animation:none}}
 
 
+
+
+/* Seletor visual de variações com miniaturas individuais */
+.detail-content #variants.option-list{display:flex;flex-wrap:wrap;gap:10px}
+.detail-content #variants.option-list button{
+  width:78px;min-width:78px;height:88px;min-height:88px;padding:5px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  border:1px solid #383838;background:#151515;color:#ddd;
+}
+.detail-content #variants.option-list button img{
+  display:block;width:100%;height:57px;object-fit:cover;object-position:center;
+}
+.detail-content #variants.option-list button span{
+  display:block;font-size:8px;line-height:1.1;text-align:center;white-space:nowrap;
+}
+.detail-content #variants.option-list button.chosen{
+  border-color:var(--y);background:#292300;color:var(--y);
+}
+@media(max-width:760px){
+  .detail-content #variants.option-list{gap:8px}
+  .detail-content #variants.option-list button{width:72px;min-width:72px;height:82px;min-height:82px}
+  .detail-content #variants.option-list button img{height:51px}
+}
