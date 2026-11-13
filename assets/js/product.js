@@ -58,8 +58,8 @@ document.addEventListener("DOMContentLoaded",async()=>{
 
   },{passive:true});
 
-  function valid(){if(!size){alert("Selecione um tamanho.");return false;}return true;}
-  function order(){return{id:p.id,name:p.name,price:+p.price,variant:variant.name,size:size,qty:Math.max(1,+$("qty").value||1),image:(variant.images||[])[0]||p.image||""};}
+  function valid(){if(hasSizes&&!size){alert("Selecione um tamanho.");return false;}return true;}
+  function order(){return{id:p.id,name:p.name,price:+p.price,variant:variant.name,size:hasSizes?size:null,qty:Math.max(1,+$("qty").value||1),image:(variant.images||[])[0]||p.image||""};}
   $("add").onclick=()=>{
     if(!valid())return;
     const cart=JSON.parse(localStorage.getItem("aj-cart")||"[]");
