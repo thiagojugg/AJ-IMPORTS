@@ -166,5 +166,37 @@
         ]
       }
     ]
+  },
+  {
+    "id": "camiseta-polo-vasco-da-gama",
+    "name": "CAMISETA POLO VASCO DA GAMA",
+    "category": "CAMISETA DE TIME",
+    "price": 95,
+    "description": "Camiseta polo Vasco da Gama, modelo preto com bege. Disponível nos tamanhos P, M, G e GG.",
+    "image": "assets/529886a8-811a-48fd-bb56-7c14d20347cc.jpeg",
+    "images": [
+      "assets/529886a8-811a-48fd-bb56-7c14d20347cc.jpeg"
+    ],
+    "variants": [
+      {
+        "name": "Preto com bege",
+        "images": [
+          "assets/529886a8-811a-48fd-bb56-7c14d20347cc.jpeg"
+        ]
+      }
+    ],
+    "sizes": [
+      "P",
+      "M",
+      "G",
+      "GG"
+    ],
+    "hasSizes": true,
+    "tags": [
+      "camiseta",
+      "polo",
+      "vasco da gama",
+      "camiseta de time"
+    ]
   }
 ]
