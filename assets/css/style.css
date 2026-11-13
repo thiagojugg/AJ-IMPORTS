@@ -1147,3 +1147,72 @@ footer .logo .aj-flag{width:34px;height:34px;flex-basis:34px}
     font-size:7px;
   }
 }
+
+
+/* Experiência cinematográfica AJ IMPORTS — aplicada em todas as páginas */
+html.aj-cinematic{scroll-behavior:smooth;scroll-padding-top:90px}
+body.cinematic-enter{animation:ajPageEnter .8s cubic-bezier(.2,.7,.2,1) both}
+@keyframes ajPageEnter{from{opacity:.72;filter:brightness(.72)}to{opacity:1;filter:brightness(1)}}
+.aj-cinematic main>section,
+.aj-cinematic .detail-visual,
+.aj-cinematic .detail-content,
+.aj-cinematic .site-footer,
+.aj-cinematic .products .card,
+.aj-cinematic .categories .cat{
+  will-change:opacity,transform,filter;
+}
+.aj-cinematic .cinematic-reveal{
+  opacity:0;
+  transform:translate3d(0,24px,0);
+  filter:blur(5px);
+  transition:opacity .8s cubic-bezier(.2,.7,.2,1),
+             transform .85s cubic-bezier(.2,.7,.2,1),
+             filter .85s cubic-bezier(.2,.7,.2,1);
+}
+.aj-cinematic .cinematic-reveal.cinematic-visible{
+  opacity:1;
+  transform:translate3d(0,0,0);
+  filter:blur(0);
+}
+.aj-cinematic .products .card.cinematic-reveal:nth-child(3n+2){transition-delay:.08s}
+.aj-cinematic .products .card.cinematic-reveal:nth-child(3n){transition-delay:.16s}
+.aj-cinematic .categories .cat.cinematic-reveal:nth-child(even){transition-delay:.09s}
+.aj-cinematic .hero-editorial .slide.active .slide-copy{
+  animation:ajTextReveal .9s .12s both cubic-bezier(.2,.7,.2,1);
+}
+.aj-cinematic .hero-editorial .slide.active .photo{
+  animation:ajPhotoReveal 1.05s .08s both cubic-bezier(.2,.7,.2,1);
+}
+@keyframes ajTextReveal{from{opacity:0;transform:translate3d(0,20px,0);filter:blur(5px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes ajPhotoReveal{from{opacity:0;transform:scale(1.035);filter:brightness(.65) blur(4px)}to{opacity:1;transform:scale(1);filter:brightness(1) blur(0)}}
+.aj-cinematic .card-media,
+.aj-cinematic .detail-gallery-frame,
+.aj-cinematic .photo{overflow:hidden}
+.aj-cinematic .card-media>img,
+.aj-cinematic .detail-gallery-frame .gimg,
+.aj-cinematic .photo>img{
+  transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .8s ease;
+}
+.aj-cinematic .card:hover .card-media>img,
+.aj-cinematic .detail-gallery-frame:hover .gimg.current,
+.aj-cinematic .photo:hover>img{
+  transform:scale(1.035);
+  filter:brightness(1.06);
+}
+.aj-cinematic .header{
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+.aj-cinematic .header,
+.aj-cinematic .product-header{transition:background .35s ease,border-color .35s ease}
+@media(max-width:650px){
+  html.aj-cinematic{scroll-padding-top:76px}
+  .aj-cinematic .cinematic-reveal{transform:translate3d(0,17px,0);filter:blur(3px);transition-duration:.65s}
+  .aj-cinematic .products .card.cinematic-reveal:nth-child(n){transition-delay:0s}
+}
+@media(prefers-reduced-motion:reduce){
+  html.aj-cinematic{scroll-behavior:auto}
+  .aj-cinematic body,.aj-cinematic .cinematic-reveal,
+  .aj-cinematic .hero-editorial .slide.active .slide-copy,
+  .aj-cinematic .hero-editorial .slide.active .photo{animation:none!important;transition:none!important;opacity:1!important;transform:none!important;filter:none!important}
+}
