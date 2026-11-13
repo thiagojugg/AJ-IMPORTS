@@ -79,3 +79,10 @@
  .quantity-control{margin:10px 0 13px}
 }
 @media(prefers-reduced-motion:reduce){.thumbs button,.detail .option-list button,.detail .add-button{transition:none}}
+
+
+/* Ajustes de estrutura dos blocos de opções */
+.detail .detail-option{display:block}
+.detail .option-heading{display:flex}
+.detail .option-list{display:flex}
+.detail .detail-actions{display:grid}
