@@ -762,3 +762,63 @@ footer .logo .aj-flag{width:34px;height:34px;flex-basis:34px}
 .header .logo-emblem{justify-self:center;align-self:center;display:flex;align-items:center;justify-content:center;width:100px;height:70px;line-height:0}
 .header .logo-emblem img{display:block;width:100%;height:100%;max-width:100px;max-height:70px;object-fit:contain}
 @media(max-width:650px){.header .logo-emblem{width:82px;height:64px}.header .logo-emblem img{max-width:82px;max-height:64px}}
+
+
+/* Nomes das categorias — tipografia editorial premium */
+#categorias .cat,
+.section .specials .cat{gap:12px}
+#categorias .cat>strong,
+.section .specials .cat>strong{
+  position:relative;
+  display:block;
+  width:100%;
+  max-width:210px;
+  min-height:34px;
+  padding:10px 9px 8px;
+  color:#f7f7f4;
+  font-family:Arial,sans-serif;
+  font-size:11px;
+  font-weight:900;
+  line-height:1.3;
+  letter-spacing:1.35px;
+  text-align:center;
+  text-transform:uppercase;
+  text-wrap:balance;
+  text-shadow:0 2px 9px #000b;
+  transition:color .25s ease,transform .25s ease;
+}
+#categorias .cat>strong::before,
+.section .specials .cat>strong::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:50%;
+  width:25px;
+  height:2px;
+  background:linear-gradient(90deg,#9b8200,#f5d500,#fff0a0);
+  transform:translateX(-50%);
+  box-shadow:0 0 10px #f5d50055;
+}
+#categorias .cat:hover>strong,
+#categorias .cat:focus-visible>strong,
+.section .specials .cat:hover>strong,
+.section .specials .cat:focus-visible>strong{
+  color:#f5d500;
+  transform:translateY(-2px);
+}
+@media(max-width:650px){
+  #categorias .cat>strong,
+  .section .specials .cat>strong{
+    max-width:100%;
+    min-height:36px;
+    padding:9px 3px 7px;
+    font-size:9px;
+    line-height:1.35;
+    letter-spacing:1px;
+  }
+  #categorias .cat,
+  .section .specials .cat{gap:9px}
+}
+@media(prefers-reduced-motion:reduce){
+  #categorias .cat>strong,.section .specials .cat>strong{transition:none}
+}
