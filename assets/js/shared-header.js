@@ -33,6 +33,9 @@ document.addEventListener("DOMContentLoaded",async()=>{
   const found=q?catalog.filter(p=>(p.name+" "+p.category+" "+(p.tags||[]).join(" ")).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toUpperCase().includes(q)): [];
   if(results)results.innerHTML=found.slice(0,8).map(p=>'<a href="produto.html?id='+encodeURIComponent(p.id)+'">'+p.name+' <span>'+money(p.price)+'</span></a>').join("")+(q&&!found.length?'<p class="empty">Nenhum produto encontrado.</p>':"");
  });
+ const applyCoupon=$("applyCoupon"),couponCode=$("couponCode"),couponMessage=$("couponMessage");
+ applyCoupon?.addEventListener("click",()=>{if(couponMessage)couponMessage.textContent="Nenhum cupom ativo no momento. Tente novamente mais tarde."});
+ couponCode?.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();applyCoupon?.click()}});
  renderCart();
 });
 
