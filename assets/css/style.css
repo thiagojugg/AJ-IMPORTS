@@ -154,3 +154,32 @@
  .detail-content .detail-actions .yellow,.detail-content .detail-actions .add-button{height:42px}
 }
 @media(prefers-reduced-motion:reduce){.detail .thumbs button,.detail-content .option-list button,.detail-content .detail-actions .add-button{transition:none}}
+
+/* Banner editorial com fotografia — AJ IMPORTS */
+.hero-editorial{background:#090909;overflow:hidden}
+.hero-editorial .slides{position:relative}
+.hero-editorial .slide{min-height:clamp(470px,48vw,620px);padding:48px clamp(22px,7vw,100px);grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:clamp(20px,4vw,65px);align-items:stretch;background:linear-gradient(110deg,#090909 0%,#111 48%,#171717 100%)}
+.hero-editorial .slide-copy{align-self:center;position:relative;z-index:1}
+.hero-editorial .slide-copy>small{font-size:9px;letter-spacing:2px;color:var(--y)}
+.hero-editorial .slide h1{font-size:clamp(58px,7vw,104px);line-height:.84;letter-spacing:-1px;margin:22px 0}
+.hero-editorial .slide p{max-width:340px;color:#bcbcbc;font-size:13px;line-height:1.7;margin:20px 0 25px}
+.hero-editorial .slide .yellow{display:inline-flex;align-items:center;gap:18px;padding:14px 18px}
+.hero-editorial .slide .yellow span{font-size:15px}
+.hero-editorial .photo{position:relative;height:auto;min-height:390px;max-height:540px;border:0;overflow:hidden;background:#161616;display:block;box-shadow:0 20px 55px #0008}
+.hero-editorial .photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#09090930,transparent 25%),linear-gradient(0deg,#0005,transparent 28%);pointer-events:none}
+.hero-editorial .photo img{display:block;width:100%;height:100%;min-height:390px;max-height:540px;object-fit:cover;object-position:center 35%}
+.hero-editorial .photo-index{position:absolute;z-index:1;right:16px;bottom:14px;color:#fff;font-size:9px;letter-spacing:2px;font-weight:800}
+.hero-editorial .dots{left:clamp(22px,7vw,100px);bottom:22px;z-index:3}
+.hero-editorial .dots button{width:30px;height:3px;background:#555}
+.hero-editorial .dots button.active{background:var(--y)}
+@media(max-width:650px){
+ .hero-editorial .slide{min-height:0;padding:27px 18px 52px;grid-template-columns:minmax(0,1fr);gap:20px;background:#090909}
+ .hero-editorial .slide-copy{padding:8px 4px 0}
+ .hero-editorial .slide h1{font-size:clamp(54px,15vw,76px);margin:16px 0}
+ .hero-editorial .slide p{font-size:11px;margin:13px 0 17px}
+ .hero-editorial .slide .yellow{padding:12px 14px;font-size:9px}
+ .hero-editorial .photo{height:clamp(245px,76vw,390px);min-height:0;max-height:none}
+ .hero-editorial .photo img{height:100%;min-height:0;max-height:none;object-position:center 30%}
+ .hero-editorial .dots{left:22px;bottom:18px}
+}
+@media(prefers-reduced-motion:reduce){.hero-editorial .slide.active{animation:none}}
