@@ -1,52 +1,33 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#080808">
-  <title>Produto — AJ IMPORTS</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script defer src="assets/js/product.js"></script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080808">
+<title>Produto — AJ IMPORTS</title><link rel="stylesheet" href="assets/css/style.css"><script defer src="assets/js/product.js"></script>
 </head>
 <body class="product-page">
-  <header class="header product-header">
-    <a class="back-link" href="index.html" aria-label="Voltar à loja">← <span>LOJA</span></a>
-    <a class="logo" href="index.html"><b>AJ</b><small>IMPORTS</small></a>
-    <a class="bag-link" href="index.html" aria-label="Abrir sacola"><span>♧</span><sup id="count">0</sup></a>
-  </header>
-
-  <main class="detail">
-    <div class="detail-visual">
-      <div id="gallery" class="gallery" aria-label="Galeria de fotos do produto"></div>
-      <div id="thumbs" class="thumbs" aria-label="Miniaturas do produto"></div>
-    </div>
-
-    <section class="detail-content">
-      <div class="detail-kicker"><span>AJ IMPORTS</span><i></i><span>DETALHES DO PRODUTO</span></div>
-      <h1 id="name">Produto</h1>
-      <strong id="price" class="detail-price"></strong>
-      <p id="description" class="detail-description"></p>
-
-      <div class="detail-option">
-        <div class="option-heading"><h3>ESCOLHA A COR</h3><span>SELECIONE UMA OPÇÃO</span></div>
-        <div id="variants" class="option-list"></div>
-      </div>
-
-      <div class="detail-option">
-        <div class="option-heading"><h3>TAMANHO</h3><span>SELECIONE UMA OPÇÃO</span></div>
-        <div id="sizes" class="option-list"></div>
-      </div>
-
-      <label class="quantity-control">QUANTIDADE
-        <input id="qty" type="number" min="1" value="1" inputmode="numeric">
-      </label>
-
-      <div class="detail-actions">
-        <button id="buy" class="yellow wide">COMPRAR PELO WHATSAPP <span>↗</span></button>
-        <button id="add" class="add-button wide">ADICIONAR À SACOLA <span>＋</span></button>
-      </div>
-      <p class="detail-footnote">ATENDIMENTO DIRETO PELO WHATSAPP · AJ IMPORTS</p>
-    </section>
-  </main>
-</body>
-</html>
+<header class="header product-header">
+<a class="back-link" href="index.html"><span class="back-chevron">←</span><span>VOLTAR À LOJA</span></a>
+<a class="logo" href="index.html"><b>AJ</b><small>IMPORTS</small></a>
+<a class="bag-link" href="index.html" aria-label="Sacola"><span>♧</span><sup id="count">0</sup></a>
+</header>
+<main class="detail">
+<div class="detail-visual">
+<div class="detail-gallery-frame"><div class="detail-gallery-label">AJ IMPORTS <span>•</span> PRODUTO EM DESTAQUE</div><div id="gallery" class="gallery" aria-label="Galeria de fotos"></div></div>
+<div id="thumbs" class="thumbs" aria-label="Miniaturas"></div>
+</div>
+<section class="detail-content" aria-label="Informações do produto">
+<div class="detail-kicker"><span>COLEÇÃO AJ IMPORTS</span><i></i><span>DETALHES</span></div>
+<h1 id="name">Produto</h1>
+<div class="detail-price-row"><strong id="price" class="detail-price"></strong><span class="detail-availability"><i></i> DISPONÍVEL</span></div>
+<p id="description" class="detail-description"></p>
+<div class="detail-option"><div class="option-heading"><h3>01 — VARIEDADE</h3><span id="variant-current">ESCOLHA UMA OPÇÃO</span></div><div id="variants" class="option-list"></div></div>
+<div class="detail-option"><div class="option-heading"><h3>02 — TAMANHO</h3><span>SELECIONE ABAIXO</span></div><div id="sizes" class="option-list"></div></div>
+<div class="detail-purchase-row">
+<label class="quantity-control"><span>QUANTIDADE</span><input id="qty" type="number" min="1" value="1" inputmode="numeric" aria-label="Quantidade"></label>
+<span class="detail-secure">COMPRA DIRETA<br>VIA WHATSAPP</span>
+</div>
+<div class="detail-actions"><button id="buy" class="yellow wide">COMPRAR PELO WHATSAPP <span>↗</span></button><button id="add" class="add-button wide">ADICIONAR À SACOLA <span>＋</span></button></div>
+<div class="detail-assurance"><span>✓</span> Atendimento direto e personalizado AJ IMPORTS</div>
+</section>
+</main>
+</body></html>
