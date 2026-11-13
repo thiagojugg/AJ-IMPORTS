@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded",async()=>{
   $("name").textContent=p.name;
   $("price").textContent=money(+p.price);
   $("description").textContent=p.description||"";
+  const shareButton=document.createElement("button");
+  shareButton.type="button";shareButton.className="share-product detail-share";shareButton.dataset.shareProduct=p.id;shareButton.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="m8.7 10.7 6.6-4.4M8.7 13.3l6.6 4.4"></path></svg><span>COMPARTILHAR PRODUTO</span>';
+  $("description").insertAdjacentElement("afterend",shareButton);
   const variants=p.variants||[{name:"Única",images:p.images||[]}];
   variant=variants[0];
   $("variants").innerHTML=variants.map((v,i)=>{
