@@ -953,3 +953,108 @@ footer .logo .aj-flag{width:34px;height:34px;flex-basis:34px}
   .site-footer .footer-brand>span{font-size:48px}
   .site-footer .footer-brand>small{font-size:11px}
 }
+
+
+/* Carrinho — visual minimalista e tipografia em caixa alta */
+.drawer{
+  background:#090909;
+  border-left:1px solid #292929;
+  padding:22px 20px;
+}
+.drawer header{
+  min-height:52px;
+  padding-bottom:13px;
+  border-bottom:1px solid #292929;
+}
+.drawer header h2{
+  margin:0;
+  color:#fff;
+  font-family:Arial,sans-serif;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+.drawer header button{
+  color:#aaa;
+  font-size:25px;
+  line-height:1;
+}
+.drawer #cartItems,
+.drawer #cartItems *{
+  text-transform:uppercase;
+}
+.drawer .coupon-area label,
+.drawer .coupon-entry button,
+.drawer .total b,
+.drawer #checkout{
+  text-transform:uppercase;
+  letter-spacing:1.2px;
+}
+.drawer .coupon-area{
+  border-top:1px solid #292929;
+}
+.drawer .coupon-area label{
+  color:#aaa;
+  font-size:9px;
+  font-weight:800;
+}
+.drawer .coupon-entry input{
+  background:transparent;
+  border-color:#383838;
+  border-radius:0;
+  font-size:12px;
+}
+.drawer .coupon-entry input::placeholder{
+  color:#777;
+  text-transform:uppercase;
+  font-size:9px;
+  letter-spacing:.7px;
+}
+.drawer .coupon-entry button{
+  min-height:40px;
+  padding:0 14px;
+  background:#f5d500;
+  font-size:9px;
+}
+.drawer .coupon-area p{
+  color:#777;
+  font-size:9px;
+}
+.drawer .total{
+  align-items:center;
+  margin:15px 0 8px;
+  padding-top:13px;
+  border-top:1px solid #292929;
+}
+.drawer .total b{
+  color:#aaa;
+  font-size:9px;
+  font-weight:800;
+}
+.drawer .total strong{
+  color:#fff;
+  font-size:16px;
+  font-weight:800;
+}
+.drawer .shipping-note{
+  margin:0 0 15px;
+  padding:11px 12px;
+  border:1px solid #303030;
+  color:#aaa;
+  font-size:9px;
+  font-weight:800;
+  line-height:1.5;
+  letter-spacing:1px;
+  text-align:center;
+  text-transform:uppercase;
+}
+.drawer #checkout{
+  min-height:46px;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1.2px;
+}
+@media(max-width:650px){
+  .drawer{padding:19px 16px}
+}
