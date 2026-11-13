@@ -722,8 +722,6 @@
 
 /* Bandeira do Maranhão aplicada diretamente ao desenho das letras AJ. */
 .logo .aj-flag{display:inline-block;position:relative;font-size:48px;line-height:.9;letter-spacing:-3px;color:var(--y);filter:drop-shadow(0 1px 5px #0008)}
-.logo .aj-flag span{display:inline-block;color:transparent!important;-webkit-text-fill-color:transparent;background-image:repeating-linear-gradient(180deg,#d71920 0%,#d71920 14%,#fff 14%,#fff 28%,#1763a6 28%,#1763a6 42%,#fff 42%,#fff 56%,#d71920 56%,#d71920 70%,#fff 70%,#fff 84%,#1763a6 84%,#1763a6 100%);background-size:100% 220%;background-position:0 0;-webkit-background-clip:text;background-clip:text;animation:maranhao-flag-wave 3s ease-in-out infinite alternate}
+.logo .aj-flag span{display:inline-block!important;color:transparent!important;-webkit-text-fill-color:transparent!important;background:repeating-linear-gradient(to bottom,#d71920 0 12%,#fff 12% 24%,#1763a6 24% 36%,#fff 36% 48%,#d71920 48% 60%,#fff 60% 72%,#1763a6 72% 84%,#fff 84% 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;background-size:100% 100%!important;animation:none!important}
 footer .logo .aj-flag{font-size:34px}
-@keyframes maranhao-flag-wave{0%{transform:skewY(0deg);background-position:0 0}50%{transform:skewY(-2deg);background-position:0 50%}100%{transform:skewY(2deg);background-position:0 100%}}
 @media(max-width:650px){.header .logo .aj-flag{font-size:41px}}
-@media(prefers-reduced-motion:reduce){.logo .aj-flag span{animation:none}}
