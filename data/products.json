@@ -204,16 +204,23 @@
     "name": "CAMISETA CORINTHIANS CLÁSSICA",
     "category": "CAMISETA DE TIME",
     "price": 95,
-    "description": "Camiseta Corinthians clássica, na cor preta. Disponível nos tamanhos P, M, G e GG.",
+    "description": "Camiseta Corinthians clássica, disponível nas cores preta e branca. Disponível nos tamanhos P, M, G e GG.",
     "image": "assets/a89a5443-6fc2-4fb3-992d-b6a69bade296.jpeg",
     "images": [
-      "assets/a89a5443-6fc2-4fb3-992d-b6a69bade296.jpeg"
+      "assets/a89a5443-6fc2-4fb3-992d-b6a69bade296.jpeg",
+      "assets/b17dc530-db23-4652-95cf-45b5d1b48a3b.jpeg"
     ],
     "variants": [
       {
         "name": "Preta",
         "images": [
           "assets/a89a5443-6fc2-4fb3-992d-b6a69bade296.jpeg"
+        ]
+      },
+      {
+        "name": "Branca",
+        "images": [
+          "assets/b17dc530-db23-4652-95cf-45b5d1b48a3b.jpeg"
         ]
       }
     ],
