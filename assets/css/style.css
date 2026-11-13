@@ -1291,22 +1291,3 @@ body::after{
 @media(prefers-reduced-motion:reduce){body::before,body::after{animation:none}}
 
 
-/* Gorro de Natal 3D encaixado sobre o emblema do cabeçalho */
-.header .logo-emblem{position:relative;overflow:visible}
-.header .logo-emblem::before{
- content:"";position:absolute;z-index:2;top:1px;right:15px;width:34px;height:29px;
- background:linear-gradient(135deg,#ff5a50 0%,#d20e19 48%,#850710 100%);
- clip-path:polygon(4% 100%,100% 100%,77% 0%);
- transform:rotate(13deg);transform-origin:bottom center;
- filter:drop-shadow(2px 3px 2px #000b);
-}
-.header .logo-emblem::after{
- content:"";position:absolute;z-index:3;top:22px;right:9px;width:39px;height:8px;
- border-radius:7px;background:linear-gradient(180deg,#fff 0%,#e8e8e8 58%,#aeb0b4 100%);
- box-shadow:0 2px 3px #0009, inset 0 1px 1px #fff;
- background-image:radial-gradient(circle at 91% -3px,#fff 0 5px,#e5e5e5 5.5px,transparent 7px),linear-gradient(180deg,#fff 0%,#e8e8e8 58%,#aeb0b4 100%);
-}
-@media(max-width:650px){
- .header .logo-emblem::before{top:0;right:12px;width:29px;height:25px}
- .header .logo-emblem::after{top:19px;right:7px;width:34px;height:7px}
-}
