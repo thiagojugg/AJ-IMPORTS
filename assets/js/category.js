@@ -10,7 +10,11 @@ document.addEventListener("DOMContentLoaded",async()=>{
   }catch(e){}
 
   products=products
-    .filter(p=>norm(p.category)===norm(category))
+    .filter(p=>{
+      const isShirtCategory=norm(category).includes("CAMISETA");
+      const isBermuda=p.id==="bermudas-jeans-ff2" || norm(p.category).includes("BERMUDA");
+      return norm(p.category)===norm(category) && !(isShirtCategory && isBermuda);
+    })
     .sort((a,b)=>new Date(b.createdAt||0)-new Date(a.createdAt||0));
 
   const money=n=>new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"}).format(Number(n)||0);
