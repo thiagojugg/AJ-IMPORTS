@@ -61,5 +61,42 @@
       "relógio",
       "pulseira de couro"
     ]
+  },
+  {
+    "id": "bermudas-jeans-ff2",
+    "name": "BERMUDAS JEANS FF2",
+    "category": "BERMUDAS",
+    "price": 95,
+    "createdAt": "2026-11-13T02:33:08.028Z",
+    "description": "Bermudas jeans FF2. Escolha o tamanho ideal para você.",
+    "image": "3453f2c9-d538-4e04-85bf-d3679f5205d2.jpeg",
+    "images": [
+      "3453f2c9-d538-4e04-85bf-d3679f5205d2.jpeg",
+      "34f4bd66-ed31-412a-9b98-d628deffb52e.jpeg",
+      "4d16d817-6584-4645-b836-a9110b29df61.jpeg",
+      "965df8c7-e956-43e9-b599-fc42cfd3caa4.jpeg",
+      "a5a62912-eca5-4c8d-9fdb-949dae06164f.jpeg",
+      "aa0617fb-fb9c-4bab-b730-f180bc621792.jpeg",
+      "b957ee76-b0d5-4d26-8cc5-581ef034476f.jpeg",
+      "bb83af79-029f-4bf5-afd6-82003685f2a1.jpeg",
+      "c50e3281-e7aa-4f57-b370-d8909bd08373.jpeg",
+      "c55d1e78-7c46-4cce-9de1-b23637f14dc8.jpeg",
+      "d38b4831-c81b-44fb-bc6f-5b15e9816cc6.jpeg"
+    ],
+    "sizes": [
+      "36",
+      "38",
+      "40",
+      "42",
+      "44",
+      "46"
+    ],
+    "hasSizes": true,
+    "tags": [
+      "bermuda",
+      "bermudas jeans",
+      "jeans",
+      "ff2"
+    ]
   }
 ]
