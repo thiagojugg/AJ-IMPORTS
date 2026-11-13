@@ -10,7 +10,7 @@
   e.preventDefault();e.stopPropagation();close();
   try{const list=await getCatalog();const p=list.find(x=>String(x.id)===btn.dataset.shareProduct);if(!p)return;
    const url=base+"compartilhar/"+encodeURIComponent(p.id)+"/";
-   const message=[p.name,p.description||"Confira este produto na AJ IMPORTS.",url].join("\\n");
+   const photo=new URL(p.image,base).href;\n   const message=[p.name,p.description||"Confira este produto na AJ IMPORTS.","Foto do produto: "+photo,"Ver produto: "+url].join("\\n");
    const menu=document.createElement("div");menu.className="share-menu";
    menu.innerHTML='<a target="_blank" rel="noopener noreferrer" href="https://wa.me/?text='+encodeURIComponent(message)+'">'+icon("whatsapp")+'WHATSAPP</a><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url)+'">'+icon("facebook")+'FACEBOOK</a>';
    document.body.append(menu);const r=btn.getBoundingClientRect();menu.style.left=Math.max(10,Math.min(innerWidth-205,r.right-195))+"px";menu.style.top=Math.max(10,Math.min(innerHeight-125,r.bottom+8))+"px";setTimeout(()=>document.addEventListener("click",outside,true),0);
