@@ -736,3 +736,15 @@ footer .logo .aj-flag{width:34px;height:34px;flex-basis:34px}
 
 /* Oculta o selo de categoria sobre a foto em todos os cards da loja. */
 .card-media .card-category{display:none!important}
+
+
+/* Botões de categoria com fotografia centralizada e profundidade 3D */
+.cat{perspective:900px;gap:13px}
+.orb{position:relative;isolation:isolate;overflow:hidden;width:min(100%,185px);aspect-ratio:1;border:1px solid rgba(245,213,0,.48);border-radius:50%;background:radial-gradient(circle at 32% 22%,#383838 0,#191919 52%,#090909 100%);box-shadow:inset 0 2px 5px #ffffff20,inset 0 -12px 20px #000b,0 5px 0 #8e7800,0 10px 0 #4e4300,0 17px 24px #000b,0 0 18px #f5d50012;transform:translateY(0) rotateX(0);transform-style:preserve-3d;transition:transform .32s cubic-bezier(.2,.8,.2,1),box-shadow .32s,border-color .32s;padding:14px}
+.orb>img{position:relative;z-index:1;display:block;width:78%;height:78%;max-width:145px;max-height:145px;object-fit:contain;object-position:center;margin:auto;filter:drop-shadow(0 7px 7px #0009);transform:translateZ(18px);transition:transform .35s ease,filter .35s ease}
+.orb-shine{position:absolute;z-index:2;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(145deg,#ffffff24 0%,#ffffff08 24%,transparent 48%,#0003 100%);box-shadow:inset 0 1px 1px #ffffff45,inset 0 -2px 5px #0008}
+.cat:hover .orb,.cat:focus-visible .orb{border-color:#ffe84a;transform:translateY(-7px) rotateX(5deg) rotateY(-4deg);box-shadow:inset 0 2px 7px #ffffff2a,inset 0 -12px 20px #000b,0 7px 0 #b99b00,0 13px 0 #625200,0 24px 32px #000c,0 0 25px #f5d50025}
+.cat:hover .orb>img,.cat:focus-visible .orb>img{transform:translateZ(28px) scale(1.07);filter:drop-shadow(0 12px 9px #000b)}
+.cat strong{max-width:100%;line-height:1.35;text-align:center}
+@media(max-width:650px){.orb{padding:10px;box-shadow:inset 0 2px 5px #ffffff20,inset 0 -10px 16px #000b,0 4px 0 #8e7800,0 8px 0 #4e4300,0 13px 18px #000b}.orb>img{width:82%;height:82%}.cat:hover .orb,.cat:focus-visible .orb{transform:translateY(-4px) rotateX(3deg)}}
+@media(prefers-reduced-motion:reduce){.orb,.orb>img{transition:none}}
