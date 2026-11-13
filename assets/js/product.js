@@ -1,1 +1,80 @@
-const PHONE="5598988482474";let p,variant=null,size=null;const $=id=>document.getElementById(id);const money=n=>new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"}).format(n);function gallery(){let imgs=variant&&variant.images&&variant.images.length?variant.images:(p.images||[p.image]).filter(Boolean);$("gallery").innerHTML=imgs.length?imgs.map((src,i)=>'<img class="gimg '+(!i?'current':'')+'" src="'+src+'" alt="'+p.name+'">').join(""):'<div class="placeholder">FOTOS DO PRODUTO SERÃO ADICIONADAS</div>';$("thumbs").innerHTML=imgs.map((src,i)=>'<button data-img="'+i+'"><img src="'+src+'" alt="Foto '+(i+1)+'"></button>').join("");$("thumbs").onclick=e=>{let b=e.target.closest("[data-img]");if(!b)return;document.querySelectorAll(".gimg").forEach((im,i)=>im.classList.toggle("current",i===+b.dataset.img))}}document.addEventListener("DOMContentLoaded",async()=>{try{let list=await(await fetch("data/products.json")).json();p=list.find(x=>String(x.id)===new URLSearchParams(location.search).get("id"))}catch(e){}if(!p){$("name").textContent="Produto não encontrado";return}$("name").textContent=p.name;$("price").textContent=money(+p.price);$("description").textContent=p.description||"";let vs=p.variants||[{name:"Única",images:p.images||[]}];variant=vs[0];$("variants").innerHTML=vs.map((v,i)=>'<button data-v="'+i+'">'+v.name+'</button>').join("");$("variants").onclick=e=>{let b=e.target.closest("[data-v]");if(!b)return;variant=vs[+b.dataset.v];gallery()};let ss=p.sizes||["P","M","G","GG"];$("sizes").innerHTML=ss.map(s=>'<button data-s="'+s+'">'+s+'</button>').join("");$("sizes").onclick=e=>{let b=e.target.closest("[data-s]");if(!b)return;size=b.dataset.s;document.querySelectorAll("#sizes button").forEach(x=>x.classList.toggle("chosen",x===b))};gallery();const saved=JSON.parse(localStorage.getItem("aj-cart")||"[]");const counter=document.getElementById("count");if(counter)counter.textContent=saved.reduce((n,x)=>n+x.qty,0);const gal=document.getElementById("gallery");let touchX=0;gal.addEventListener("touchstart",e=>{touchX=e.changedTouches[0].screenX},{passive:true});gal.addEventListener("touchend",e=>{let dx=e.changedTouches[0].screenX-touchX;let imgs=[...document.querySelectorAll(".gimg")];if(imgs.length<2||Math.abs(dx)<35)return;let current=imgs.findIndex(im=>im.classList.contains("current"));let next=(current+(dx<0?1:-1)+imgs.length)%imgs.length;imgs.forEach((im,i)=>im.classList.toggle("current",i===next))},{passive:true});function chosen(){if(!size){alert("Selecione um tamanho.");return false}return true}function order(){return{id:p.id,name:p.name,price:+p.price,variant:variant.name,size:size,qty:Math.max(1,+$("qty").value||1),image:(variant.images||[])[0]||p.image||""}}$("add").onclick=()=>{if(!chosen())return;let c=JSON.parse(localStorage.getItem("aj-cart")||"[]");c.push(order());localStorage.setItem("aj-cart",JSON.stringify(c));alert("Adicionado à sacola! Volte à página inicial para visualizar.")};$("buy").onclick=()=>{if(!chosen())return;let o=order();let msg="Olá! Quero comprar na AJ IMPORTS:\nProduto: "+o.name+"\nVariedade: "+o.variant+"\nTamanho: "+o.size+"\nQuantidade: "+o.qty+"\nValor: "+money(o.price)+(o.image?"\nImagem escolhida: "+o.image:"");window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(msg),"_blank")}});
+const PHONE="5598988482474";
+let p,variant=null,size=null;
+const $=id=>document.getElementById(id);
+const money=n=>new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"}).format(n);
+
+function gallery(){
+  const imgs=variant&&variant.images&&variant.images.length?variant.images:(p.images||[p.image]).filter(Boolean);
+  $("gallery").innerHTML=imgs.length?imgs.map((src,i)=>'<img class="gimg '+(!i?"current":"")+'" src="'+src+'" alt="'+p.name+'" loading="'+(i?"lazy":"eager")+'">').join(""):'<div class="placeholder">FOTOS DO PRODUTO SERÃO ADICIONADAS</div>';
+  $("thumbs").innerHTML=imgs.map((src,i)=>'<button type="button" data-img="'+i+'" class="'+(!i?"thumb-current":"")+'" aria-label="Ver foto '+(i+1)+'"><img src="'+src+'" alt=""></button>').join("");
+  $("thumbs").onclick=e=>{
+    const b=e.target.closest("[data-img]");if(!b)return;
+    document.querySelectorAll(".gimg").forEach((im,i)=>im.classList.toggle("current",i===+b.dataset.img));
+    $("thumbs").querySelectorAll("button").forEach(x=>x.classList.toggle("thumb-current",x===b));
+  };
+}
+
+document.addEventListener("DOMContentLoaded",async()=>{
+  try{
+    const list=await(await fetch("data/products.json")).json();
+    p=list.find(x=>String(x.id)===new URLSearchParams(location.search).get("id"));
+  }catch(e){}
+  if(!p){$("name").textContent="Produto não encontrado";return;}
+
+  $("name").textContent=p.name;
+  $("price").textContent=money(+p.price);
+  $("description").textContent=p.description||"";
+  const variants=p.variants||[{name:"Única",images:p.images||[]}];
+  variant=variants[0];
+  $("variants").innerHTML=variants.map((v,i)=>'<button type="button" data-v="'+i+'" class="'+(!i?"chosen":"")+'">'+v.name+'</button>').join("");
+  const current=$("variant-current");
+  if(current)current.textContent=variant.name;
+  $("variants").onclick=e=>{
+    const b=e.target.closest("[data-v]");if(!b)return;
+    variant=variants[+b.dataset.v];
+    $("variants").querySelectorAll("button").forEach(x=>x.classList.toggle("chosen",x===b));
+    if(current)current.textContent=variant.name;
+    gallery();
+  };
+
+  const sizes=p.sizes||["P","M","G","GG"];
+  size=sizes.length===1?sizes[0]:null;
+  $("sizes").innerHTML=sizes.map(s=>'<button type="button" data-s="'+s+'" class="'+(sizes.length===1?"chosen":"")+'">'+s+'</button>').join("");
+  $("sizes").onclick=e=>{
+    const b=e.target.closest("[data-s]");if(!b)return;
+    size=b.dataset.s;
+    $("sizes").querySelectorAll("button").forEach(x=>x.classList.toggle("chosen",x===b));
+  };
+
+  gallery();
+  const saved=JSON.parse(localStorage.getItem("aj-cart")||"[]");
+  const counter=$("count");
+  if(counter)counter.textContent=saved.reduce((n,x)=>n+x.qty,0);
+
+  let touchX=0;
+  $("gallery").addEventListener("touchstart",e=>{touchX=e.changedTouches[0].screenX;},{passive:true});
+  $("gallery").addEventListener("touchend",e=>{
+    const dx=e.changedTouches[0].screenX-touchX;
+    const imgs=[...document.querySelectorAll(".gimg")];
+    if(imgs.length<2||Math.abs(dx)<35)return;
+    const currentIndex=imgs.findIndex(im=>im.classList.contains("current"));
+    const next=(currentIndex+(dx<0?1:-1)+imgs.length)%imgs.length;
+    imgs.forEach((im,i)=>im.classList.toggle("current",i===next));
+    $("thumbs").querySelectorAll("button").forEach((b,i)=>b.classList.toggle("thumb-current",i===next));
+  },{passive:true});
+
+  function valid(){if(!size){alert("Selecione um tamanho.");return false;}return true;}
+  function order(){return{id:p.id,name:p.name,price:+p.price,variant:variant.name,size:size,qty:Math.max(1,+$("qty").value||1),image:(variant.images||[])[0]||p.image||""};}
+  $("add").onclick=()=>{
+    if(!valid())return;
+    const cart=JSON.parse(localStorage.getItem("aj-cart")||"[]");
+    cart.push(order());localStorage.setItem("aj-cart",JSON.stringify(cart));
+    alert("Adicionado à sacola! Volte à página inicial para visualizar.");
+  };
+  $("buy").onclick=()=>{
+    if(!valid())return;
+    const o=order();
+    const msg="Olá! Quero comprar na AJ IMPORTS:\nProduto: "+o.name+"\nVariedade: "+o.variant+"\nTamanho: "+o.size+"\nQuantidade: "+o.qty+"\nValor: "+money(o.price)+(o.image?"\nImagem escolhida: "+o.image:"");
+    window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(msg),"_blank");
+  };
+});
