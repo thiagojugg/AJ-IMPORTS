@@ -1314,3 +1314,8 @@ body::after{
   .detail-content #variants.option-list button{width:72px;min-width:72px;height:82px;min-height:82px}
   .detail-content #variants.option-list button img{height:51px}
 }
+
+/* Vitrine: quatro produtos por linha somente em telas desktop */
+@media(min-width:761px){
+  .products{grid-template-columns:repeat(4,minmax(0,1fr));}
+}
