@@ -1,5 +1,81 @@
 [
   {
+    "id": "camiseta-bermuda-nike-dry-fit-premium",
+    "name": "CAMISETA + BERMUDA NIKE DRY FIT PREMIUM",
+    "category": "CONJUNTO DE ACADEMIA MASCULINA",
+    "price": 95,
+    "description": "Conjunto masculino Nike Dry Fit Premium, com camiseta e bermuda. Disponível nos tamanhos P, M, G e GG. Escolha uma das sete variações e o tamanho desejado.",
+    "image": "assets/04738a6e-08de-420d-88c2-563acfd6c1eb.jpeg",
+    "images": [
+      "assets/04738a6e-08de-420d-88c2-563acfd6c1eb.jpeg",
+      "assets/27558599-2844-4d24-9dbf-bf52fdc916d7.jpeg",
+      "assets/96e872da-b042-4cc9-8fc1-f781b3ac33cd.jpeg",
+      "assets/99433500-41ae-47bf-82b7-5171a848e45e.jpeg",
+      "assets/e0cd2b29-7269-42a1-b82f-9f44283ba6fa.jpeg",
+      "assets/ecfdc1ca-1c62-4d71-b5ed-aef2ae4bed00.jpeg",
+      "assets/f4c880ce-2926-4b47-8e1d-833de0c96ac8.jpeg"
+    ],
+    "variants": [
+      {
+        "name": "Variação 01",
+        "images": [
+          "assets/04738a6e-08de-420d-88c2-563acfd6c1eb.jpeg"
+        ]
+      },
+      {
+        "name": "Variação 02",
+        "images": [
+          "assets/27558599-2844-4d24-9dbf-bf52fdc916d7.jpeg"
+        ]
+      },
+      {
+        "name": "Variação 03",
+        "images": [
+          "assets/96e872da-b042-4cc9-8fc1-f781b3ac33cd.jpeg"
+        ]
+      },
+      {
+        "name": "Variação 04",
+        "images": [
+          "assets/99433500-41ae-47bf-82b7-5171a848e45e.jpeg"
+        ]
+      },
+      {
+        "name": "Variação 05",
+        "images": [
+          "assets/e0cd2b29-7269-42a1-b82f-9f44283ba6fa.jpeg"
+        ]
+      },
+      {
+        "name": "Variação 06",
+        "images": [
+          "assets/ecfdc1ca-1c62-4d71-b5ed-aef2ae4bed00.jpeg"
+        ]
+      },
+      {
+        "name": "Variação 07",
+        "images": [
+          "assets/f4c880ce-2926-4b47-8e1d-833de0c96ac8.jpeg"
+        ]
+      }
+    ],
+    "sizes": [
+      "P",
+      "M",
+      "G",
+      "GG"
+    ],
+    "hasSizes": true,
+    "tags": [
+      "nike",
+      "dry fit",
+      "conjunto",
+      "camiseta",
+      "bermuda",
+      "academia masculina"
+    ]
+  },
+  {
     "id": "calca-jeans-skinny",
     "name": "CALÇA JEANS SKINNY",
     "category": "CALÇAS",
