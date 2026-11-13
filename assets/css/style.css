@@ -498,3 +498,29 @@
     font-size:8px;
   }
 }
+
+
+/* Galeria de produto: proporção natural da foto, sem moldura quadrada fixa */
+.detail-gallery-frame .gallery{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:auto !important;
+  max-height:none !important;
+  overflow:hidden;
+  background:transparent;
+}
+.detail-gallery-frame .gimg{
+  display:none;
+  width:100%;
+  height:auto;
+  max-height:none;
+  object-fit:contain;
+  object-position:center;
+  margin:0 auto;
+}
+.detail-gallery-frame .gimg.current{display:block}
+@media(max-width:760px){
+  .detail-gallery-frame .gallery{height:auto;aspect-ratio:auto !important;max-height:none !important}
+  .detail-gallery-frame .gimg{width:100%;height:auto;max-height:none}
+}
