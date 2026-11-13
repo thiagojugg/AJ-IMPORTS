@@ -183,3 +183,11 @@
  .hero-editorial .dots{left:22px;bottom:18px}
 }
 @media(prefers-reduced-motion:reduce){.hero-editorial .slide.active{animation:none}}
+
+
+/* Centraliza o assunto principal das fotografias no banner */
+.hero-editorial .photo{display:flex;align-items:center;justify-content:center}
+.hero-editorial .photo img{object-position:center center}
+@media(max-width:650px){
+ .hero-editorial .photo img{object-position:center center}
+}
