@@ -11,7 +11,7 @@ function gallery(){
 
 document.addEventListener("DOMContentLoaded",async()=>{
   try{
-    const list=await(await fetch("data/products.json")).json();
+    const list=await(await fetch("data/products.json",{cache:"no-store"})).json();
     p=list.find(x=>String(x.id)===new URLSearchParams(location.search).get("id"));
   }catch(e){}
   if(!p){$("name").textContent="Produto não encontrado";return;}
@@ -21,7 +21,10 @@ document.addEventListener("DOMContentLoaded",async()=>{
   $("description").textContent=p.description||"";
   const variants=p.variants||[{name:"Única",images:p.images||[]}];
   variant=variants[0];
-  $("variants").innerHTML=variants.map((v,i)=>'<button type="button" data-v="'+i+'" class="'+(!i?"chosen":"")+'">'+v.name+'</button>').join("");
+  $("variants").innerHTML=variants.map((v,i)=>{
+    const thumb=(v.images&&v.images[0])||p.image||"";
+    return '<button type="button" data-v="'+i+'" class="'+(!i?"chosen":"")+'" aria-label="Selecionar '+v.name+'">'+(thumb?'<img src="'+thumb+'" alt="" loading="lazy">':'')+'<span>'+v.name+'</span></button>';
+  }).join("");
   const current=$("variant-current");
   if(current)current.textContent=variant.name;
   $("variants").onclick=e=>{
