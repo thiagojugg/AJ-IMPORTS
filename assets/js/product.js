@@ -32,7 +32,10 @@ document.addEventListener("DOMContentLoaded",async()=>{
     gallery();
   };
 
-  const sizes=p.sizes||["P","M","G","GG"];
+  const sizeSection=$("sizes").closest(".detail-option");
+  const hasSizes=!(String(p.category||"").toUpperCase().includes("RELÓGIO") || (p.tags||[]).includes("relógio"));
+  if(sizeSection)sizeSection.hidden=!hasSizes;
+  const sizes=hasSizes?(p.sizes||["P","M","G","GG"]):[];
   size=sizes.length===1?sizes[0]:null;
   $("sizes").innerHTML=sizes.map(s=>'<button type="button" data-s="'+s+'" class="'+(sizes.length===1?"chosen":"")+'">'+s+'</button>').join("");
   $("sizes").onclick=e=>{
@@ -69,7 +72,7 @@ document.addEventListener("DOMContentLoaded",async()=>{
   $("buy").onclick=()=>{
     if(!valid())return;
     const o=order();
-    const msg="Olá! Quero comprar na AJ IMPORTS:\nProduto: "+o.name+"\nVariedade: "+o.variant+"\nTamanho: "+o.size+"\nQuantidade: "+o.qty+"\nValor: "+money(o.price)+(o.image?"\nImagem escolhida: "+o.image:"");
+    const msg="Olá! Quero comprar na AJ IMPORTS:\nProduto: "+o.name+"\nVariedade: "+o.variant+(o.size?"\nTamanho: "+o.size:"")+"\nQuantidade: "+o.qty+"\nValor: "+money(o.price)+(o.image?"\nImagem escolhida: "+o.image:"");
     window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(msg),"_blank");
   };
 });
