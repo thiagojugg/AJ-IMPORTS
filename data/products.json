@@ -521,16 +521,30 @@
     "category": "CAMISETAS",
     "price": 95,
     "createdAt": "2026-11-13T22:15:00.000Z",
-    "description": "Camiseta gola polo Dry Fit Premium. Disponível nos tamanhos P, M, G e GG. Escolha a variação e o tamanho desejados.",
+    "description": "Camiseta gola polo Dry Fit Premium. Disponível nos tamanhos P, M, G e GG. Escolha uma das três variações e o tamanho desejado.",
     "image": "assets/WhatsApp Image 2026-11-13 at 16.08.50.jpeg",
     "images": [
-      "assets/WhatsApp Image 2026-11-13 at 16.08.50.jpeg"
+      "assets/WhatsApp Image 2026-11-13 at 16.08.50.jpeg",
+      "assets/WhatsApp Image 2026-11-13 at 16.08.51 (1).jpeg",
+      "assets/WhatsApp Image 2026-11-13 at 16.08.51.jpeg"
     ],
     "variants": [
       {
         "name": "Variação 01",
         "images": [
           "assets/WhatsApp Image 2026-11-13 at 16.08.50.jpeg"
+        ]
+      },
+      {
+        "name": "Variação 02",
+        "images": [
+          "assets/WhatsApp Image 2026-11-13 at 16.08.51 (1).jpeg"
+        ]
+      },
+      {
+        "name": "Variação 03",
+        "images": [
+          "assets/WhatsApp Image 2026-11-13 at 16.08.51.jpeg"
         ]
       }
     ],
